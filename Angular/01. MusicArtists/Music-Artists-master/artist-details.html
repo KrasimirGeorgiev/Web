@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Music Artists</title>
+    <link rel="stylesheet" href="app/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="app/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="app/css/app.css" />
+</head>
+<body ng-app="musicApp" ng-controller="ArtistDetails">
+
+<div class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../" class="navbar-brand">Music Artists</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#">Add Artist</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="jumbotron" ng-cloak="">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>{{artist.name}}</h1>
+                <p>
+                    <strong>Created: </strong> {{artist.created}}
+                </p>
+                <p>
+                    <strong>More Information</strong>
+                    <button class="btn btn-sm" ng-click="showMoreInfo()">{{showHideInfo}}</button>
+                    <div ng-hide="hideInfo">
+                        <p>
+                            <strong>Location: </strong> {{artist.additionalInformation.location}}
+                        </p>
+                        <p>
+                            <strong>Albums: </strong> {{artist.additionalInformation.albums}}
+                        <p>
+                            <strong>Singles: </strong> {{artist.additionalInformation.singles}}
+                        </p>
+                        <p>
+                            <strong>Band members: </strong>
+                            <ul>
+                                <li ng-repeat="member in artist.additionalInformation.bandMembers">
+                                    {{member}}
+                                </li>
+                            </ul>
+                        </p>
+                    </div>
+                </p>
+            </div>
+            <div class="col-md-6 image-container">
+                <img src="{{artist.image}}" alt=""/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center">
+    <hr/>
+    <small>Author: {{author.name}}. Date: {{date.day}}/{{date.month}}/{{date.year}}</small>
+</footer>
+
+<script src="app/lib/jquery.min.js"></script>
+<script src="app/lib/bootstrap.min.js"></script>
+<script src="app/lib/angular/angular.min.js"></script>
+<script src="app/js/app.js"></script>
+<script src="app/js/controllers/PageController.js"></script>
+<script src="app/js/controllers/ArtistDetailsController.js"></script>
+
+</body>
+</html>
