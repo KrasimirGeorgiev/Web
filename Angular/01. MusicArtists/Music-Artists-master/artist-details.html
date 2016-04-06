@@ -39,27 +39,65 @@
                     <strong>Created: </strong> {{artist.created}}
                 </p>
                 <p>
-                    <strong>More Information</strong>
-                    <button class="btn btn-sm" ng-click="showMoreInfo()">{{showHideInfo}}</button>
-                    <div ng-hide="hideInfo">
-                        <p>
-                            <strong>Location: </strong> {{artist.additionalInformation.location}}
-                        </p>
-                        <p>
-                            <strong>Albums: </strong> {{artist.additionalInformation.albums}}
-                        <p>
-                            <strong>Singles: </strong> {{artist.additionalInformation.singles}}
-                        </p>
-                        <p>
-                            <strong>Band members: </strong>
-                            <ul>
-                                <li ng-repeat="member in artist.additionalInformation.bandMembers">
-                                    {{member}}
-                                </li>
-                            </ul>
-                        </p>
-                    </div>
+                    <strong>Location: </strong> {{artist.additionalInformation.location}}
                 </p>
+                <p>
+
+                        <strong>More Information</strong>
+                        <button class="btn btn-sm pull-right" ng-click="showMoreInfo()">{{showHideInfo}}</button>
+
+                        <div ng-hide="hideInfo" class="panel-body panel panel-default">
+                            <p>
+                                <strong>Albums: </strong> {{artist.additionalInformation.albums}}
+                            </p>
+                            <p>
+                                <strong>Singles: </strong> {{artist.additionalInformation.singles}}
+                            </p>
+                            <p>
+                                <strong>Band members: </strong>
+                                <button class="btn btn-sm pull-right" ng-click="showBandMembers()">{{showHideBandMembers}}</button>
+
+                                <ul class="list-group" ng-hide="hideBandMembers">
+                                    <li class="list-group-item text-center" ng-class="blueClass" ng-repeat="member in artist.additionalInformation.bandMembers" ng-class-odd="grayBackGround">
+                                        <a href="#" ng-style="boldFontCss">{{member}}</a>
+                                    </li>
+                                </ul>
+                            </p>
+
+                        <!--<youtube-video video-id="linkinParkPlaylist"></youtube-video>-->
+
+
+                        </div>
+                </p>
+                <div>
+                    <p>
+                        <strong>Records: </strong>
+                        <button class="btn btn-sm pull-right" ng-click="showRecords()">{{showHideRecords}}</button>
+                    <div ng-hide="hideRecords">
+                        <ul class="nav nav-tabs">
+                            <li ng-repeat="album in artist.albums">
+                                <a href="#album-{{album.id}}" data-toggle="tab">{{album.name}}</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade" ng-repeat="album in artist.albums" id="album-{{album.id}}">
+                                <div class="panel panel-default">
+                                    <div class="panel-body row">
+                                        <div class="col-md-6">
+                                        <strong>{{album.name}}</strong>
+                                        </div>
+                                        <div class="col-md-6 image-container">
+                                            <img src="{{album.image}}" alt="{{album.name}}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </p>
+                </div>
+
             </div>
             <div class="col-md-6 image-container">
                 <img src="{{artist.image}}" alt=""/>
@@ -79,6 +117,8 @@
 <script src="app/js/app.js"></script>
 <script src="app/js/controllers/PageController.js"></script>
 <script src="app/js/controllers/ArtistDetailsController.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="app/lib/angular-youtube-embed.js"></script>
 
 </body>
 </html>

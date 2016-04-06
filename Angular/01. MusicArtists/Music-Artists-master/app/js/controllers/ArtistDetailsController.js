@@ -57,8 +57,35 @@ musicApp.controller('ArtistDetails',
         $scope.author = author;
         $scope.date = date;
         $scope.hideInfo = true;
+        $scope.hideBandMembers = true;
         $scope.showHideInfo = "Show info";
+        $scope.showHideBandMembers = 'Show';
+        $scope.showBandMembers = showBandMembers;
         $scope.showMoreInfo = showMoreInfo;
+        $scope.linkinParkPlaylist = '8sgycukafqQ';
+
+        $scope.showHideRecords = 'Show';
+        $scope.hideRecords = true;
+        $scope.showRecords = showRecords;
+
+        $scope.boldFontCss = {
+            fontWeight: 'bold',
+            textDecoration: 'underline'
+        };
+
+        $scope.grayBackGround = "gray-background";
+
+        $scope.blueClass = "blue-text";
+
+        function showRecords(){
+            $scope.hideRecords = !$scope.hideRecords;
+            if ($scope.hideRecords)
+            {
+                $scope.showHideRecords = 'Show';
+            } else {
+                $scope.showHideRecords = 'Hide';
+            }
+        }
 
         function showMoreInfo() {
             $scope.hideInfo = !$scope.hideInfo;
@@ -66,6 +93,15 @@ musicApp.controller('ArtistDetails',
                 $scope.showHideInfo = "Show info";
             } else {
                 $scope.showHideInfo = "Hide info";
+            }
+        }
+
+        function showBandMembers() {
+            $scope.hideBandMembers = !$scope.hideBandMembers;
+            if($scope.hideBandMembers) {
+                $scope.showHideBandMembers = 'Show';
+            } else {
+                $scope.showHideBandMembers = 'Hide';
             }
         }
 
