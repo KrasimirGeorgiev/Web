@@ -68,6 +68,9 @@ musicApp.controller('ArtistDetails',
         $scope.hideRecords = true;
         $scope.showRecords = showRecords;
 
+        $scope.upVoteRating = upVoteRating;
+        $scope.downVoteRating = downVoteRating;
+
         $scope.boldFontCss = {
             fontWeight: 'bold',
             textDecoration: 'underline'
@@ -77,7 +80,7 @@ musicApp.controller('ArtistDetails',
 
         $scope.blueClass = "blue-text";
 
-        function showRecords(){
+        function showRecords() {
             $scope.hideRecords = !$scope.hideRecords;
             if ($scope.hideRecords)
             {
@@ -85,6 +88,10 @@ musicApp.controller('ArtistDetails',
             } else {
                 $scope.showHideRecords = 'Hide';
             }
+        }
+
+        function changeRating() {
+
         }
 
         function showMoreInfo() {
@@ -105,5 +112,17 @@ musicApp.controller('ArtistDetails',
             }
         }
 
+        function upVoteRating(album) {
+            if(album.rating < 10)
+            {
+                album.rating++;
+            }
+        }
+
+        function downVoteRating(album) {
+            if(album.rating > 0) {
+                album.rating--;
+            }
+        }
 
     });
