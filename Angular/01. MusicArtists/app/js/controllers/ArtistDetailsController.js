@@ -44,12 +44,14 @@ musicApp.controller('ArtistDetails',
                     price:10,
                     status:3
                 },{
+                    id:4,
                     name:"Reanimation",
                     image:"http://upload.wikimedia.org/wikipedia/en/7/7b/Linkin_park_reanimation.jpg",
-                    year:"2002",
-                    songs:"25",
-                    price:"24",
-                    status:"2"
+                    year:2002,
+                    songs:25,
+                    rating:0,
+                    price:24,
+                    status:2
                 }]
         };
 
@@ -90,9 +92,7 @@ musicApp.controller('ArtistDetails',
             }
         }
 
-        function changeRating() {
 
-        }
 
         function showMoreInfo() {
             $scope.hideInfo = !$scope.hideInfo;

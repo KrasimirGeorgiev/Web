@@ -74,20 +74,30 @@
                         <strong>Records: </strong>
                         <button class="btn btn-sm pull-right" ng-click="showRecords()">{{showHideRecords}}</button>
                     <div ng-hide="hideRecords">
+                        <div class="row">
+                            Sort:
+                            <select ng-model="sort">
+                                <option value="id" selected="selected">Default</option>
+                                <option value="name">Name</option>
+                                <option value="year">Year</option>
+                                <option value="price">Price</option>
+                                <option value="-rating">Rating</option>
+                            </select>
+                        </div>
                         <ul class="nav nav-tabs">
 
-                            <li ng-repeat="album in artist.albums">
+                            <li ng-repeat="album in artist.albums | limitTo: 4 | orderBy: sort">
                                 <a href="#album-{{album.id}}" data-toggle="tab">{{album.name}}</a>
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane fade" ng-repeat="album in artist.albums" id="album-{{album.id}}">
+                            <div class="tab-pane fade" ng-repeat="album in artist.albums | limitTo: 4" id="album-{{album.id}}">
                                 <div class="panel panel-default">
                                     <div class="panel-body row">
                                         <div class="col-md-6">
                                             <p><strong>{{album.name}}</strong></p>
                                             <p><strong>Year: {{album.year}}</strong></p>
-                                            <p><strong>Price: {{album.price}}$</strong></p>
+                                            <p><strong>Price: {{album.price | number: 2 | currency}}</strong></p>
                                             <p><strong>Songs: {{album.songs}}</strong></p>
                                             <p>
                                                 <strong>Rating: {{album.rating}}</strong>
