@@ -3,7 +3,7 @@
  */
 'use strict';
 
-musicApp.controller('ArtistDetails',
+musicApp.controller('ArtistDetailsController',
     function($scope, author, date) {
         var artist = {
                 id: 1,
@@ -69,6 +69,8 @@ musicApp.controller('ArtistDetails',
         $scope.showHideRecords = 'Show';
         $scope.hideRecords = true;
         $scope.showRecords = showRecords;
+
+        $scope.sort = "id";
 
         $scope.upVoteRating = upVoteRating;
         $scope.downVoteRating = downVoteRating;

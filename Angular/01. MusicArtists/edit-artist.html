@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Edit Artist</title>
+    <link rel="stylesheet" href="app/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="app/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="app/css/app.css" />
+</head>
+<body ng-app="musicApp" ng-controller="EditArtistController">
+
+<div class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../" class="navbar-brand">Music Artists</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="edit-artist.html">Add Artist</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <form class="form-horizontal" name="newArtistForm">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Artist</h1>
+                <fieldset>
+                    <legend>Main Information</legend>
+                    <div class="form-group">
+                        <label for="name" class="col-lg-2 control-label">Name</label>
+                        <div class="col-lg-10">
+                            <input type="text" required="required" class="form-control form-validation" id="name" placeholder="Name" ng-model="artist.name" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="image" class="col-lg-2 control-label">Image</label>
+                        <div class="col-lg-10">
+                            <input type="text" required="required" class="form-control form-validation" id="image" placeholder="URL" ng-model="artist.image" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <label for="date" class="col-lg-2 control-label">Created</label>
+                            <div class="col-lg-10">
+                                <input type="text" required="required" ng-pattern="/\d\d/\d\d/\d\d\d\d/" class="form-control form-validation" id="date" placeholder="dd/mm/yyyy" ng-model="artist.created" />
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Optional Information</legend>
+                    <div class="form-group">
+                        <label for="location" class="col-lg-2 control-label">Location</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="location" placeholder="Location" ng-model="artist.additionalInformation.location" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="albums" class="col-lg-2 control-label">Albums</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="albums" placeholder="Albums" ng-model="artist.additionalInformation.albums" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="singles" class="col-lg-2 control-label">Singles</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="singles" placeholder="Singles" ng-model="artist.additionalInformation.singles" />
+                        </div>
+                    </div>
+
+                </fieldset>
+                <div class="form-group">
+                    <div class="pull-right">
+                        <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+                        <button class="btn btn-primary" ng-click="saveArtist(artist, newArtistForm)">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="col-md-6">
+        <img src="" ng-src="{{artist.image}}"/>
+    </div>
+</div>
+<footer class="text-center">
+    <hr/>
+    <small>Author: {{author.name}}. Date: {{date.day}}/{{date.month}}/{{date.year}}</small>
+</footer>
+
+<script src="app/lib/jquery.min.js"></script>
+<script src="app/lib/bootstrap.min.js"></script>
+<script src="app/lib/angular/angular.min.js"></script>
+<script src="app/js/app.js"></script>
+<script src="app/js/controllers/PageController.js"></script>
+<script src="app/js/controllers/ArtistDetailsController.js"></script>
+<script src="app/js/controllers/EditArtistController.js"></script>
+<script src="app/js/filters/status.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="app/lib/angular-youtube-embed.js"></script>
+
+</body>
+</html>

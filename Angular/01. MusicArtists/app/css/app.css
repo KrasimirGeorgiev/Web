@@ -14,3 +14,11 @@
 .gray-background a {
     color: white;
 }
+
+input.ng-invalid.ng-dirty.form-validation {
+    background-color: lightpink;
+}
+
+input.ng-valid.ng-dirty.form-validation {
+    background-color: darkseagreen;
+}
