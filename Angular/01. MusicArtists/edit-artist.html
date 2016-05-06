@@ -46,7 +46,7 @@
                     <div class="form-group">
                         <label for="image" class="col-lg-2 control-label">Image</label>
                         <div class="col-lg-10">
-                            <input type="text" required="required" class="form-control form-validation" id="image" placeholder="URL" ng-model="artist.image" />
+                            <input type="text" required="required" class="form-control form-validation" id="image" placeholder="URL" ng-pattern="/\.(gif|jpg|jpeg|tiff|png)$/i" ng-model="artist.image" />
                         </div>
                     </div>
                     <div class="form-group">
