@@ -1,7 +1,7 @@
 'use strict';
 
 var musicApp = angular
-    .module('musicApp', ['youtube-embed'])
+    .module('musicApp', ['youtube-embed', 'angularVideoBg'])
     .value('author', {
         name: 'Krasimir Georgiev'
     })
